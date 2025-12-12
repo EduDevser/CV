@@ -1,0 +1,277 @@
+:root{
+  --bg:#EDEBE7;
+  --ink:#4D362A;
+  --line: color-mix(in oklab, var(--ink) 100%, transparent);
+
+  /* типографика: Inter light больше, сохраняем пропорции */
+  --scale: 2.55;
+  --p: calc(7px * var(--scale));
+  --h: calc(15px * var(--scale));
+
+  --max: 980px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight:300; /* Inter Light */
+}
+
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding: 26px;
+}
+
+/* header */
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand__icon img{
+  height: 28px;
+  margin-left: 100px;
+}
+
+.nav{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  font-size: var(--p);
+}
+
+.nav a{
+  text-decoration:none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  color: inherit;
+}
+.nav a:hover{ border-bottom-color: var(--ink); }
+
+/* sections (широкие полосы) */
+.section{
+  padding-top: 26px;
+  padding-bottom: 26px;
+  border-bottom: 2px solid var(--line);
+}
+
+.section--profile{
+  padding-top: 44px;
+}
+
+.h1{
+  font-family:"Cormorant Garamond", serif;
+  font-weight:700;
+  font-size: clamp(44px, 5.6vw, 74px);
+  line-height: 1.02;
+  margin:0;
+}
+
+.h2{
+  font-family:"Cormorant Garamond", serif;
+  font-weight:700;
+  font-size: calc(var(--h) * 1.05);
+  line-height:1.1;
+  margin:0 0 18px 0;
+}
+
+/* profile */
+.profile{
+  display:grid;
+  grid-template-columns: 240px 1fr;
+  gap: 36px;
+  align-items:start;
+
+}
+
+.photo{
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: color-mix(in oklab, var(--bg) 75%, transparent);
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  filter: grayscale(100%);
+}
+
+.meta{
+  display:flex;
+  flex-direction:column;
+  gap: 7px;
+  line-height: 1;
+}
+
+.meta2{
+  display:flex;
+  padding-top: 10px;
+  flex-direction:column;
+  gap: 5px;
+}
+
+.bg-logo{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+  user-select: none;
+
+  z-index: -1;              /* КЛЮЧЕВОЕ */
+}
+
+.bg-logo img{
+  width: 70vmin;            /* масштаб */
+  height: 70vmin;
+  opacity: 0.3;           /* еле заметный */
+}
+
+.meta-lines{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+  font-size: var(--p);
+}
+
+.meta-line{
+  display:flex;
+  gap: 10px;
+  align-items:baseline;
+}
+
+.k{ opacity:.75; }
+.sep{ opacity:.55; }
+
+.contact-lines{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 14px;
+  font-size: var(--p);
+}
+
+.link{
+  text-decoration:none;
+  padding-bottom: 2px;
+  color: inherit;
+}
+.link:hover{ opacity:.85; }
+
+/* entries */
+.entry{
+  padding-top: 22px;
+  padding-bottom: 22px;
+  border-top: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
+}
+.entry:first-of-type{
+  border-top: none;
+  padding-top: 0;
+}
+
+.entry__head{
+  display:flex;
+  justify-content:space-between;
+  gap: 16px;
+  flex-wrap:wrap;
+}
+
+.entry__title{
+  font-weight:500; /* Inter Medium для подзаголовков */
+  font-size: calc(var(--p) * 1.02);
+}
+
+.entry__date{
+  font-size: var(--p);
+  opacity: .8;
+}
+
+.entry__sub{
+  margin-top: 6px;
+  font-size: var(--p);
+  opacity: .82;
+}
+
+/* lists */
+.list{
+  margin: 12px 0 0;
+  padding-left: 18px;
+  font-size: var(--p);
+  line-height: 1.65;
+}
+.list li{ margin: 7px 0; }
+
+/* footer */
+.footer{
+  padding-top: 1px;
+  padding-bottom: 30px;
+}
+
+.footer__line{
+  height:1px;
+  background: var(--line);
+  margin-bottom: 12px;
+}
+
+.footer__text{
+  font-size: var(--p);
+  opacity:.8;
+}
+
+/* responsive */
+@media (max-width: 860px){
+  .profile{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .photo{ max-width: 260px; }
+}
+
+.section--actions{
+  padding-top: 48px;
+  padding-bottom: 48px;
+  border-bottom: none;
+}
+
+.actions{
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.action-btn{
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;                 /* Inter Medium */
+  font-size: var(--small);
+
+  text-decoration: none;
+  color: var(--ink);
+
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--ink);
+
+  transition: opacity .15s ease;
+}
+
+.action-btn:hover{
+  opacity: .7;
+}
+
+a{
+  text-decoration: none;
+}
