@@ -76,6 +76,7 @@ body{
   font-size: clamp(44px, 5.6vw, 74px);
   line-height: 1.02;
   margin:0;
+  margin-bottom: 1%;
 }
 
 .h2{
