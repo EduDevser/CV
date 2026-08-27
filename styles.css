@@ -90,7 +90,7 @@ body{
 /* profile */
 .profile{
   display:grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 320px 1fr;
   gap: 36px;
   align-items:start;
 
@@ -240,7 +240,7 @@ body{
     grid-template-columns: 1fr;
     gap: 18px;
   }
-  .photo{ max-width: 260px; }
+  .photo{ max-width: 320px; }
 }
 
 .section--actions{
@@ -282,4 +282,21 @@ a{
     display: none;
     visibility: hidden;
   }
+}
+
+.role{
+  font-family:"Inter", system-ui, sans-serif;
+  font-weight:500;
+  font-size: calc(var(--p) * 1.05);
+  opacity:.85;
+  margin-top: 4px;
+  margin-bottom: 14px;
+}
+
+.lead{
+  font-size: var(--p);
+  line-height: 1.55;
+  max-width: 46ch;
+  opacity:.9;
+  margin: 0 0 18px 0;
 }
